@@ -1,0 +1,303 @@
+{
+  "language": "id",
+  "breadcrumb": [
+    {
+      "text": "Beranda",
+      "url": "/",
+      "isCurrentPage": false
+    },
+    {
+      "text": "Properti & Aset",
+      "url": "/aset-properti",
+      "isCurrentPage": false
+    },
+    {
+      "text": "Rumah",
+      "url": "/aset-properti/house",
+      "isCurrentPage": false
+    },
+    {
+      "text": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "url": "#",
+      "isCurrentPage": true
+    }
+  ],
+  "title": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+  "accessibility": {
+    "text": "Aksesibelitas",
+    "data": [
+      {
+        "name": "Halte Transjakarta Iskandar Muda",
+        "icon": "icon_url"
+      },
+      {
+        "name": "Halte Transjakarta Kebayoran Lama",
+        "icon": "icon_url"
+      }
+    ]
+  },
+  "nearbyLocation": {
+    "text": "Lokasi Sekitar",
+    "data": [
+      {
+        "name": "Gandaria City Mall",
+        "icon": "icon_url"
+      },
+      {
+        "name": "Gandaria Office Tower",
+        "icon": "icon_url"
+      },
+      {
+        "name": "Sheraton Grand Jakarta Gandaria City Hotel",
+        "icon": "icon_url"
+      }
+    ]
+  },
+  "coordinates": "106.82537, -6.20145",
+  "address": "Grogol, Jakarta Barat,DKI Jakarta",
+  "thumbnail": [
+    {
+      "url": "img_frame_427320548.png",
+      "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "type": "image",
+      "thumbnailImage": "img_frame_427320548.png"
+    },
+    {
+      "url": "img_image_12.png",
+      "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "type": "image"
+    },
+    {
+      "url": "img_image_13.png",
+      "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "type": "image"
+    },
+    {
+      "url": "img_image_12.png",
+      "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "type": "image"
+    },
+    {
+      "url": "img_image_13.png",
+      "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "type": "image"
+    },
+    {
+      "url": "img_image_12.png",
+      "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "type": "image"
+    },
+    {
+      "url": "img_image_13.png",
+      "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
+      "type": "image"
+    }
+  ],
+  "description": {
+    "name": "Deskripsi",
+    "text": "DIJUAL Rumah Hook Siap Huni Di Greenland Residence Bukit Cimanggu City LT/LB = 157m2 / 100m2 KT/KM = 2 / 1 Garasi/carport muat 1 mobil PDAM Surat SHM IMB PBB Lokasi strategis dekat dengan tol, kolam renang, hotel, rumah sakit, SPBU, mall, area kuliner, sekolah, kampus."
+  },
+  "specification": {
+    "name": "Spesifikasi",
+    "data": [
+      {
+        "name": "Luas Bangunan",
+        "value": "100m2"
+      },
+      {
+        "name": "Luas Tanah",
+        "value": "157m2"
+      },
+      {
+        "name": "Kamar Mandi",
+        "value": "2"
+      },
+      {
+        "name": "Kamar Tidur",
+        "value": "1"
+      },
+      {
+        "name": "Jumlah Lantai",
+        "value": "1"
+      },
+      {
+        "name": "Daya Listrik",
+        "value": "2200 watt"
+      },
+      {
+        "name": "Kapasitas",
+        "value": "-"
+      }
+    ]
+  },
+  "facility": {
+    "name": "Fasilitas",
+    "data": ["Carport", "AC (Air Conditioner)", "Lahan Parkir", "Kolam Renang", "Fitness Sport", "Sekuriti 24 Jam"]
+  },
+  "propertyInfo": {
+    "text": "Tanyakan Properti Ini",
+    "label": [
+      {
+        "lbl_name": "Nama Perusahaan",
+        "placeholder": "e.g PT. Sukamaju, Tbk.",
+        "isDropDown": false
+      },
+      {
+        "lbl_name": "Jenis Perusahaan",
+        "placeholder": "Pilih Jenis Perusahaan",
+        "isDropDown": true,
+        "options": [
+          {
+            "value": "option1",
+            "label": "Option 1"
+          },
+          {
+            "value": "option2",
+            "label": "Option 2"
+          },
+          {
+            "value": "option3",
+            "label": "Option 3"
+          }
+        ]
+      },
+      {
+        "lbl_name": "Nama Lengkap",
+        "placeholder": "e.g Indra Herlambang",
+        "isDropDown": false
+      },
+      {
+        "lbl_name": "Email",
+        "placeholder": "email@gmail.com",
+        "isDropDown": false
+      },
+      {
+        "lbl_name": "Nomor WhatsApp",
+        "placeholder": "08XXXXXXXXXX",
+        "isDropDown": false
+      }
+    ],
+    "inquiry": "Dengan memilih tanya marketing, Anda akan kami hubungi kembali via WhatsApp untuk mendapatkan informasi properti ini.",
+    "button": "Tanya Marketing"
+  },
+  "targetState" : {
+    "text": "Bentuk Pengembangan yang Diharapkan",
+    "data": [
+      {
+        "labelHeading" : "Apartemen/Kos Eksklusif",
+        "data": ["Apartemen sewa", "Kos eksklusif"]
+      },
+      {
+        "labelHeading" : "Fasilitas Penunjang",
+        "data": ["Sportainment", "Fasilitas penunjang lain"]
+      },
+      {
+        "labelHeading" : "Rukan/Ruko",
+        "data": ["Rumah Kantor (Rukan)", "Rumah Toko (Ruko)"]
+      },
+      {
+        "labelHeading" : "Perkantoran",
+        "data": ["Gedung Grade A"]
+      },
+      {
+        "labelHeading" : "Apartemen/Kos Eksklusif 2",
+        "data": ["Apartemen sewa", "Kos eksklusif"]
+      },
+      {
+        "labelHeading" : "Fasilitas Penunjang 2",
+        "data": ["Sportainment", "Fasilitas penunjang lain"]
+      },
+      {
+        "labelHeading" : "Rukan/Ruko 2",
+        "data": ["Rumah Kantor (Rukan)", "Rumah Toko (Ruko)"]
+      },
+      {
+        "labelHeading" : "Perkantoran 2",
+        "data": ["Gedung Grade A"]
+      },
+      {
+        "labelHeading" : "Title 3",
+        "data": ["Lorem Ipsum", "Lorem Ipsum"]
+      }
+    ]
+  },
+  "propertyCardList": {
+    "text": "Properti Serupa",
+    "data": [
+      {
+        "lb": "LB",
+        "p120mtwo": "120m2",
+        "lt": "LT",
+        "p155mtwo": "155m2",
+        "lantaitwentytwo": "Lantai 22, Entire floor, Menara Mandiri, SCBD, Mega Kuningan",
+        "kuningan": "Jakarta Barat",
+        "threehundred": "300",
+        "three": "3",
+        "one": "1"
+      },
+      {
+        "lb": "LB",
+        "p120mtwo": "120m2",
+        "lt": "LT",
+        "p155mtwo": "155m2",
+        "lantaitwentytwo": "Rumah Dinas, LT100m2, dekat Gandaria City, Jakarta Selatan",
+        "kuningan": "Jakarta Barat",
+        "threehundred": "300",
+        "three": "3",
+        "one": "1"
+      },
+      {
+        "lb": "LB",
+        "p120mtwo": "120m2",
+        "lt": "LT",
+        "p155mtwo": "155m2",
+        "lantaitwentytwo": "Lantai 22, Entire floor, Menara Mandiri, SCBD, Mega Kuningan",
+        "kuningan": "Jakarta Barat",
+        "threehundred": "200",
+        "three": "3",
+        "one": "1"
+      },
+      {
+        "lb": "LB",
+        "p120mtwo": "120m2",
+        "lt": "LT",
+        "p155mtwo": "155m2",
+        "lantaitwentytwo": "Rumah Dinas, LT100m2, dekat Gandaria City, Jakarta Selatan",
+        "kuningan": "Jakarta Barat",
+        "threehundred": "300",
+        "three": "3",
+        "one": "1"
+      }
+    ]
+  },
+  "developmentLimitation": {
+    "text": "Batasan Pengembang",
+    "data": [
+      {
+        "k1": "K1",
+        "p46576mtwo": "(46.576 m2)",
+        "fifty": "50%",
+        "fortythousandon": "40-100%",
+        "fiftyone": "50%",
+        "p40100one": "40-100%"
+      },
+      {
+        "k1": "K1",
+        "p46576mtwo": "(46.576 m2)",
+        "fifty": "50%",
+        "fortythousandon": "40-100%",
+        "fiftyone": "50%",
+        "p40100one": "40-100%"
+      },
+      {
+        "k1": "K1",
+        "p46576mtwo": "(46.576 m2)",
+        "fifty": "50%",
+        "fortythousandon": "40-100%",
+        "fiftyone": "50%",
+        "p40100one": "40-100%"
+      },
+      { "k1": "K2", "p46576mtwo": "(46.576 m2)", "fifty": "6", "fortythousandon": "1-4", "fiftyone": "1-4", "p40100one": "20%" }
+    ]
+  }
+}

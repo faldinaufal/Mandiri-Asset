@@ -1,0 +1,156 @@
+{
+  "language": "en",
+  "breadcrumb": [
+    {
+      "text": "Home",
+      "url": "/",
+      "isCurrentPage": false
+    },
+    {
+      "text": "Property & Assets",
+      "url": "/property-assets",
+      "isCurrentPage": false
+    },
+    {
+      "text": "House",
+      "url": "/property-assets/house",
+      "isCurrentPage": false
+    },
+    {
+      "text": "Residential House, LT100m2, near Gandaria City, South Jakarta",
+      "url": "#",
+      "isCurrentPage": true
+    }
+  ],
+  "title": "Residential House, LT100m2, near Gandaria City, South Jakarta",
+  "coordinates": "106.82537, -6.20145",
+  "address": "Grogol, West Jakarta, DKI Jakarta",
+  "description": {
+    "name": "Description",
+    "text": "FOR SALE Ready-to-Occupy Hook House in Greenland Residence Bukit Cimanggu City Land Area/Building Area = 157m2 / 100m2 Bedrooms/Bathrooms = 2 / 1 Garage/carport fits 1 car PDAM Water Supply SHM Certificate IMB Building Permit PBB Tax Strategic location near toll road, swimming pool, hotel, hospital, gas station, mall, culinary area, schools, campus."
+  },
+  "specification": {
+    "name": "Specifications",
+    "data": [
+      {
+        "name": "Building Area",
+        "value": "100m2"
+      },
+      {
+        "name": "Land Area",
+        "value": "157m2"
+      },
+      {
+        "name": "Bathrooms",
+        "value": "2"
+      },
+      {
+        "name": "Bedrooms",
+        "value": "1"
+      },
+      {
+        "name": "Number of Floors",
+        "value": "1"
+      },
+      {
+        "name": "Electrical Power",
+        "value": "2200 watt"
+      },
+      {
+        "name": "Capacity",
+        "value": "-"
+      }
+    ]
+  },
+  "facility": {
+    "name": "Facilities",
+    "data": ["Carport", "AC (Air Conditioner)", "Parking Lot", "Swimming Pool", "Sports Fitness", "24-Hour Security"]
+  },
+  "propertyInfo": {
+    "text": "Inquire About This Property",
+    "label": [
+      {
+        "lbl_name": "Company Name",
+        "placeholder": "e.g PT. Sukamaju, Tbk.",
+        "isDropDown": false
+      },
+      {
+        "lbl_name": "Company Type",
+        "placeholder": "Select Company Type",
+        "isDropDown": true,
+        "options": [
+          {
+            "value": "option1",
+            "label": "Option 1"
+          },
+          {
+            "value": "option2",
+            "label": "Option 2"
+          },
+          {
+            "value": "option3",
+            "label": "Option 3"
+          }
+        ]
+      },
+      {
+        "lbl_name": "Full Name",
+        "placeholder": "e.g Indra Herlambang",
+        "isDropDown": false
+      },
+      {
+        "lbl_name": "Email",
+        "placeholder": "email@gmail.com",
+        "isDropDown": false
+      },
+      {
+        "lbl_name": "WhatsApp Number",
+        "placeholder": "08XXXXXXXXXX",
+        "isDropDown": false
+      }
+    ],
+    "inquiry": "By choosing 'Ask Marketing', you agree to be contacted via WhatsApp for further information about this property.",
+    "button": "Ask Marketing Team"
+  },
+  "targetState" : {
+    "text": "Desired Development Form",
+    "data": [
+      {
+        "labelHeading" : "Apartment/Exclusive Boarding House",
+        "data": ["Rental Apartments", "Exclusive Boarding House"]
+      },
+      {
+        "labelHeading" : "Supporting Facilities",
+        "data": ["Sports & Entertainment", "Other supporting facilities"]
+      },
+      {
+        "labelHeading" : "Commercial Buildings",
+        "data": ["Office House (Rukan)", "Shop House (Ruko)"]
+      },
+      {
+        "labelHeading" : "Office Space",
+        "data": ["Grade A Office Building"]
+      },
+      {
+        "labelHeading" : "Apartment/Exclusive Boarding House 2",
+        "data": ["Rental Apartments", "Exclusive Boarding House"]
+      },
+      {
+        "labelHeading" : "Supporting Facilities 2",
+        "data": ["Sports & Entertainment", "Other supporting facilities"]
+      },
+      {
+        "labelHeading" : "Commercial Buildings 2",
+        "data": ["Office House (Rukan)", "Shop House (Ruko)"]
+      },
+      {
+        "labelHeading" : "Office Space 2",
+        "data": ["Grade A Office Building"]
+      },
+      {
+        "labelHeading" : "Title 3",
+        "data": ["Lorem Ipsum", "Lorem Ipsum"]
+      }
+    ]
+  }
+}
