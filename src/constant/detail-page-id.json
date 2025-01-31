@@ -24,7 +24,7 @@
   ],
   "title": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
   "accessibility": {
-    "text": "Aksesibelitas",
+    "text": "Aksesibilitas",
     "data": [
       {
         "name": "Halte Transjakarta Iskandar Muda",
@@ -57,38 +57,38 @@
   "address": "Grogol, Jakarta Barat,DKI Jakarta",
   "thumbnail": [
     {
-      "url": "img_frame_427320548.png",
+      "url": "/images/img_frame_427320548.png",
       "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
       "type": "image",
       "thumbnailImage": "img_frame_427320548.png"
     },
     {
-      "url": "img_image_12.png",
+      "url": "/images/img_image_17.png",
       "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
       "type": "image"
     },
     {
-      "url": "img_image_13.png",
+      "url": "/images/img_image_13.png",
       "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
       "type": "image"
     },
     {
-      "url": "img_image_12.png",
+      "url": "/images/img_image_12.png",
       "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
       "type": "image"
     },
     {
-      "url": "img_image_13.png",
+      "url": "/images/img_image_13.png",
       "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
       "type": "image"
     },
     {
-      "url": "img_image_12.png",
+      "url": "/images/img_image_17.png",
       "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
       "type": "image"
     },
     {
-      "url": "img_image_13.png",
+      "url": "/images/img_image_12.png",
       "alt": "Rumah Tinggal, LT100m2, dekat Gandaria City, Jakarta Selatan",
       "type": "image"
     }

@@ -6,6 +6,7 @@ interface Props {
   value: string
   icon?: string;
   alt?: string;
+  className?: string;
 }
 
 export default function PropertySpesification({
@@ -13,9 +14,10 @@ export default function PropertySpesification({
   value,
   icon,
   alt,
+  className = ''
 }: Props) {
   return (
-    <div className="flex justify-center md:w-full rounded-tl-lg rounded-tr-lg border border-solid border-blue_gray-50_02 px-[1.00rem] py-[1.13rem]">
+    <div className={`${className} flex justify-center md:w-full rounded-tl-lg rounded-tr-lg border border-solid border-blue_gray-50_02 px-[1.00rem] py-[1.13rem]`}>
       <div className="flex flex-1 gap-[0.50rem]">
         {icon && (
           <Img src={icon} width={20} height={20} alt={alt} className="h-[1.25rem]" />

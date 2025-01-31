@@ -14,58 +14,6 @@ import PropertySpesification from "../../components/DetailListingScreenColumnkam
 import { twMerge } from "tailwind-merge";
 import { MediaPreviewer } from "@/components/MediaPreview/MediaPreview";
 
-const media = [
-  {
-    url: '/video.mp4',
-    type: 'video',
-    thumbnail: '/video-thumbnail.jpg',
-  },
-  {
-    url: '/images/img_image_12.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_13.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_17.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_12.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_13.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_17.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_13.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_17.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image.png',
-    type: 'image',
-  },
-  {
-    url: '/images/img_image_12.png',
-    type: 'image',
-  }
-];
-
 type AccessibilityType = "nearbyLocation" | "accessibility";
 
 export default function DetailListingScreenPage() {
@@ -77,7 +25,7 @@ export default function DetailListingScreenPage() {
   const [isOpenMedia, setIsOpenMedia] = React.useState<boolean>(false);
   const [accessibility, setAccessibility] = React.useState<AccessibilityType>("nearbyLocation")
   const sliderRef3 = React.useRef<AliceCarousel>(null);
-  const [isCopied, setIsCopied] = React.useState(false);
+  const [isCopied, setIsCopied] = React.useState<boolean>(false);
   const urlToCopy = "https://url-yang-akan-disalin.com";
 
   function handleCloseMedia () {
@@ -114,6 +62,8 @@ export default function DetailListingScreenPage() {
         <DetailListingSection 
           breadcrumbData={DetailPage?.breadcrumb}
           thumbnail={DetailPage?.thumbnail}
+          isCopied={isCopied}
+          handLeCopy={handleCopy}
           openMedia={handleOpenMedia}
         />
         <div className="container-xs md:px-[1.25rem]">
@@ -126,7 +76,7 @@ export default function DetailListingScreenPage() {
               >
                 {DetailPage?.title}
               </Heading>
-              <div className="detail-page-address mt-[1.00rem] flex items-center justify-between">
+              <div className="detail-page-address mt-[1.00rem] flex sm:grid sm:gap-2 items-center justify-between">
                 <div className="flex items-center">
                   <Img
                     src="img_fluent_location_28_regular.svg"
@@ -153,7 +103,7 @@ export default function DetailListingScreenPage() {
                       className="h-[1.50rem] w-[1.50rem] object-contain"
                     />
                   }
-                  className="min-w-[7.50rem] gap-[0.25rem] rounded !border px-[0.56rem] font-notosans font-medium tracking-[0.00rem]"
+                  className="min-w-[7.50rem] gap-[0.25rem] hidden lg:flex rounded sm:max-w-[100px] !border px-[0.56rem] font-notosans font-medium tracking-[0.00rem]"
                 >
                   {isCopied ? "Tersalin!" : "Salin Link"}
                 </Button>
@@ -244,14 +194,32 @@ export default function DetailListingScreenPage() {
                   >
                     {DetailPage?.specification?.name}
                   </Heading>
-                  <div className="mb-[40px] grid grid-cols-2 gap-x-[40px] gap-y-0 w-full">  
-                    {DetailPage?.specification?.data?.map((item, index) => (  
+                  <div className="mb-[40px] grid grid-cols-2 sm:grid-cols-1 gap-x-[40px] gap-y-0 w-full">  
+                    {DetailPage?.specification?.data?.map((item, index) => (
                       <PropertySpesification   
                         key={index}  
                         name={item?.name}  
-                        value={item?.value}  
+                        value={item?.value}
+                        className={twMerge(index > 2 && "sm:hidden")}
                       />  
-                    ))}  
+                    ))}
+                    <div className="flex items-center justify-center pt-4">
+                      <Button
+                        variant={"fill"}
+                        rightIcon={
+                          <Img
+                            src={"img_arrow_left.svg"}
+                            width={24}
+                            height={24}
+                            alt="Arrow icon"
+                            className="h-[1.50rem] w-[1.50rem] object-contain text-blue-400"
+                          />
+                        }
+                        className="hidden sm:flex bg-transparent text-base gap-1 text-blue-400"
+                      >
+                        Lihat Semua
+                      </Button>
+                    </div>
                   </div>  
                 </div>
               </div>
@@ -263,46 +231,34 @@ export default function DetailListingScreenPage() {
                 >
                   {DetailPage?.facility?.name}
                 </Heading>
-                <div className="flex items-start gap-[1.25rem] self-stretch md:flex-col">
-                  <div className="w-[36%] self-center lg:w-full grid grid-cols-2 gap-y-0 gap-x-10">
-                    {DetailPage?.facility?.data?.map((item, index) => (
-                      <div key={index} className="flex items-center w-full justify-between gap-[1.25rem] rounded-tl-lg rounded-tr-lg border border-solid border-blue_gray-50_02 px-[1.00rem] py-[1.13rem]">
-                        <Text as="p" className="self-end text-[1.00rem] font-normal tracking-[0.00rem]">
-                          {item}
-                        </Text>
-                        <Img src="img_fe_check.svg" width={24} height={24} alt="Fecheckone" className="h-[1.50rem]" />
-                      </div>
-                    ))}
+                <div className="mb-[40px] grid grid-cols-2 sm:grid-cols-1 gap-x-[40px] gap-y-0 w-full">
+                  {DetailPage?.facility?.data?.map((item, index) => (
+                    <div key={index} className={twMerge("flex items-center w-full justify-between gap-[1.25rem] rounded-tl-lg rounded-tr-lg border border-solid border-blue_gray-50_02 px-[1.00rem] py-[1.13rem]",
+                      index > 2 && "sm:hidden"
+                    )}>
+                      <Text as="p" className="self-end text-[1.00rem] font-normal tracking-[0.00rem]">
+                        {item}
+                      </Text>
+                      <Img src="img_fe_check.svg" width={24} height={24} alt="Fecheckone" className="h-[1.50rem]" />
+                    </div>
+                  ))}
+                  <div className="flex items-center justify-center pt-4">
+                    <Button
+                      variant={"fill"}
+                      rightIcon={
+                        <Img
+                          src={"img_arrow_left.svg"}
+                          width={24}
+                          height={24}
+                          alt="Arrow icon"
+                          className="h-[1.50rem] w-[1.50rem] object-contain text-blue-400"
+                        />
+                      }
+                      className="hidden sm:flex bg-transparent text-base gap-1 text-blue-400"
+                    >
+                      Lihat Semua
+                    </Button>
                   </div>
-                </div>
-              </div>
-              <div className="mt-[2.50rem] flex flex-col items-start justify-center gap-[1.50rem]">
-                <Heading
-                  size="textxl"
-                  as="h5"
-                  className="!font-notosans text-[1.50rem] font-medium tracking-[0.00rem] !text-indigo-900 md:text-[1.38rem]"
-                >
-                  Lokasi
-                </Heading>
-                <div className="relative h-[28.38rem] content-center rounded-lg bg-blue_gray-50_02 md:h-auto">
-                  <GoogleMap showMarker={false} className="h-[28.38rem] flex-1 rounded-lg" />
-                  <Button
-                    color="gray_50_01"
-                    size="xl"
-                    shape="round"
-                    leftIcon={
-                      <Img
-                        src="img_hugeiconsmaps.svg"
-                        width={20}
-                        height={20}
-                        alt="Hugeicons:maps"
-                        className="h-[1.25rem] w-[1.25rem] object-contain"
-                      />
-                    }
-                    className="absolute left-[1.00rem] top-[1.00rem] m-auto min-w-[8.88rem] gap-[0.50rem] rounded px-[0.88rem] font-inter font-medium tracking-[0.00rem]"
-                  >
-                    Lihat Maps
-                  </Button>
                 </div>
               </div>
             </div>
@@ -373,8 +329,39 @@ export default function DetailListingScreenPage() {
               </div>
             </div>
           </div>
-          <div className="mt-[0.38rem] h-[0.06rem] bg-gray-200" />
           <div className="mt-[5.00rem] flex flex-col gap-[5.00rem] md:gap-[3.75rem] sm:gap-[2.50rem]">
+            <div className="mt-[2.50rem] flex flex-col items-start justify-center gap-[1.50rem]">
+              <Heading
+                size="textxl"
+                as="h5"
+                className="!font-notosans text-[1.50rem] font-medium tracking-[0.00rem] !text-indigo-900 md:text-[1.38rem]"
+              >
+                Lokasi
+              </Heading>
+              <div className="flex relative items-start justify-between gap-[1.25rem] w-full self-stretch md:flex-col">
+                <GoogleMap
+                  showMarker={false}
+                  className="h-[28.38rem] w-full lg:w-[48%] self-center rounded-lg bg-[url(/images/img_frame_427320573.png)] bg-cover bg-no-repeat"
+                />
+                <Button
+                  color="gray_50_01"
+                  size="xl"
+                  shape="round"
+                  leftIcon={
+                    <Img
+                      src="img_hugeiconsmaps.svg"
+                      width={20}
+                      height={20}
+                      alt="Hugeicons:maps"
+                      className="h-[1.25rem] w-[1.25rem] object-contain"
+                    />
+                  }
+                  className="absolute top-4 left-4 m-auto min-w-[8.88rem] gap-[0.50rem] rounded px-[0.88rem] font-inter font-medium tracking-[0.00rem]"
+                >
+                  Lihat Maps
+                </Button>
+              </div>
+            </div>
             <div className="flex flex-col gap-[0.88rem]">
               <div className="flex justify-center md:flex-col">
                 <Heading
@@ -487,7 +474,7 @@ export default function DetailListingScreenPage() {
               <div className="flex items-start justify-between gap-[1.25rem] self-stretch md:flex-col">
                 <GoogleMap
                   showMarker={false}
-                  className="h-[28.38rem] w-[48%] self-center rounded-lg bg-[url(/images/img_frame_427320573.png)] bg-cover bg-no-repeat"
+                  className="h-[28.38rem] w-full lg:w-[48%] self-center rounded-lg bg-cover bg-no-repeat"
                 />
                 <div className="flex w-[46%] flex-col items-start justify-center gap-[1.00rem] md:w-full">
                   <Heading
@@ -729,7 +716,7 @@ export default function DetailListingScreenPage() {
       <Footer1 className="mt-[13.88rem]" />
       <div>
       <MediaPreviewer
-        media={media}
+        media={DetailPage?.thumbnail}
         selectedIndex={selectedIndex}
         setSelectedIndex={setSelectedIndex}
         onOpen={isOpenMedia}

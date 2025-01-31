@@ -10,6 +10,7 @@ import { Button } from '../Button';
 interface MediaItem {
   url: string;
   type: string;
+  alt: string;
   thumbnail?: string;
 }
 

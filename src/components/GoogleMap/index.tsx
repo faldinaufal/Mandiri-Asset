@@ -17,7 +17,12 @@ const Map = ({ center, zoom, markers, ...props }: MapProps) => {
 
   React.useEffect(() => {
     if (ref.current && !map) {
-      setMap(new window.google.maps.Map(ref.current, { center, zoom }));
+      setMap(new window.google.maps.Map(ref.current, { 
+        center, 
+        zoom,
+        fullscreenControl: false,
+        zoomControl: false,
+      }));
     }
   }, [ref, map, center, zoom]);
 
