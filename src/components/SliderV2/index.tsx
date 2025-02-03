@@ -22,7 +22,6 @@ const SliderV2 = forwardRef<SwiperRef, SliderComponentProps>(
       centerMode = false,
       magnifiedIndex = 0,
       activeSlideCSS = "scale-50",
-      swipeable = true,
       ...props
     },
     ref
@@ -52,7 +51,7 @@ const SliderV2 = forwardRef<SwiperRef, SliderComponentProps>(
         onSlideChangeTransitionEnd={handleSlideChange}
         navigation={false}
         mousewheel={false}
-        allowTouchMove={swipeable} // Kontrol swipe
+        allowTouchMove={true}
         {...props}
       >
         {items.map((child:React.ReactElement, index: number) => {

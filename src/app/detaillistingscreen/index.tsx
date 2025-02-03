@@ -411,8 +411,8 @@ export default function DetailListingScreenPage() {
                 >
                   Bentuk Pengembangan yang Diharapkan
                 </Heading>
-                <div className="flex flex-1 items-center justify-end md:self-stretch gap-6">
-                  <Text as="p" className="!font-manrope sm:block md:hidden lg:hidden text-[1.00rem] font-normal tracking-[0.00rem] !text-indigo-900">
+                <div className="flex md:hidden flex-1 items-center justify-end md:self-stretch gap-6">
+                  <Text as="p" className="!font-manrope hidden sm:block text-[1.00rem] font-normal tracking-[0.00rem] !text-indigo-900">
                     <span>{sliderStateSlide + 1 || "1"}</span>
                     <span> / </span>
                     <span>{DetailPage?.targetState?.data?.length|| "1"}</span>
@@ -463,22 +463,18 @@ export default function DetailListingScreenPage() {
                     setIsBeginning(swiper.isBeginning);
                     setIsEnd(swiper.isEnd);
                   }}
-                  disableDotsControls
                   slidesPerView={1}
                   slidesPerGroup={1}
                   loop={true}
-                  swipeable={false}
-                  loopAddBlankSlides={true} // Mengisi sisi kosong saat loop
                   breakpoints={{
                     680: {
                       slidesPerView: 2,
                       slidesPerGroup: 2, // Geser 2 item untuk tablet
-                      loopAddBlankSlides: true // Bisa dioverride per breakpoint
                     },
                     1024: {
                       slidesPerView: 4,
                       slidesPerGroup: 4, // Geser 4 item untuk desktop
-                      loopAddBlankSlides: true // Bisa dioverride per breakpoint
+                      allowTouchMove: false,
                     }
                   }}
                   items={DetailPage?.targetState?.data?.map((item, index) => (
