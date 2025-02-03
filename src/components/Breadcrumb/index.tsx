@@ -2,7 +2,7 @@
 import React from "react";
 
 const styles: Record<string, React.CSSProperties> = {
-  item: { alignItems: "center", display: "inline-flex", gap: "inherit" },
+  item: {display: "inline-flex", gap: "inherit", wordWrap: "break-word" },
   list: { alignItems: "center", display: "flex", gap: "inherit", listStyle: "none", wordWrap: "break-word" },
   separator: { alignItems: "center", display: "inline-flex" },
 };

@@ -99,7 +99,7 @@ export const MediaPreviewer = ({
                 shape="circle"
                 onClick={handlePrev}
                 disabled={selectedIndex === 0}
-                className="absolute left-0 top-1/2 -rotate-180 -translate-y-1/2 bg-black/50 rounded-[16px] border border-solid py-6 px-[1.2rem] text-neutral-white hover:bg-black/80 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="absolute md:hidden left-0 top-1/2 -rotate-180 -translate-y-1/2 bg-black/50 rounded-[16px] border border-solid py-6 px-[1.2rem] text-neutral-white hover:bg-black/80 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Img src={"img_arrow_right_text_disable.svg"} width={10} height={22}/>
               </Button>
@@ -110,7 +110,7 @@ export const MediaPreviewer = ({
                 shape="circle"
                 onClick={handleNext}
                 disabled={selectedIndex === media.length - 1}
-                className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 rounded-[16px] border border-solid py-6 px-[1.2rem] text-neutral-white hover:bg-black/80 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="absolute md:hidden right-0 top-1/2 -translate-y-1/2 bg-black/50 rounded-[16px] border border-solid py-6 px-[1.2rem] text-neutral-white hover:bg-black/80 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Img src={"img_arrow_right_text_disable.svg"} width={10} height={22}/>
               </Button>
@@ -136,14 +136,14 @@ export const MediaPreviewer = ({
               <Slider
                 ref={sliderRef}
                 responsive={{
-                  "0": { items: 3 },
-                  "368": { items: 4 },
-                  "468": { items: 5 },
-                  "600": { items: 6 },
-                  "728": { items: 8 },
-                  "900": { items: 9 },
-                  "1024": { items: 10 },
-                  "1280": { items: 12 },
+                  "0": { items: 2 },
+                  "368": { items: 3 },
+                  "468": { items: 4 },
+                  "600": { items: 5 },
+                  "728": { items: 6 },
+                  "900": { items: 8 },
+                  "1024": { items: 9 },
+                  "1280": { items: 11 },
                 }}
                 disableDotsControls
                 touchTracking={false}

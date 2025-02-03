@@ -1,5 +1,4 @@
 import { Button, Img, Text, BreadcrumbLink, Breadcrumb, BreadcrumbItem } from "../../components";
-import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -34,57 +33,30 @@ const DetailListingSection = (props: Props) => {
     <>
       {/* detail listing section */}
       <div className="flex flex-col items-center self-stretch">
-        <div className="container-xs flex flex-col gap-[3.00rem] md:px-[1.25rem]">
-          <Breadcrumb
-            separator={
+        <div className="flex flex-col gap-[3.00rem]">
+          <div className="flex gap-[1.50rem] md:max-w-[628px] md:flex-col relative">
+            <div className="flex-1 lg:w-1/2">
+            {props.thumbnail[0].type === 'image' ? 
               <Img
-                src="img_frame_427320547_20x1238.svg"
-                width={7}
-                height={16}
-                alt="Arrow Right"
-                className="h-[1.00rem] object-contain w-full"
+                src={props.thumbnail[0]?.url}
+                width={828}
+                height={564}
+                isStatic //hapus nanti setelah dapat API yang asli
+                onClick={()=> handleThumbnailClick(0)}
+                alt={props.thumbnail[0]?.alt}
+                className="rounded-lg object-contain hover:cursor-pointer"
+              />
+            :
+              <video
+                controls
+                className="rounded-lg object-contain hover:cursor-pointer"
+                src={props.thumbnail[0]?.url}
+                onClick={()=> handleThumbnailClick(0)}
+                poster={props.thumbnail[0]?.thumbnailImage}
               />
             }
-            className="flex flex-wrap items-center gap-[0.50rem] md:flex-col"
-          >
-            {props?.breadcrumbData?.map((item, index) => (
-              <BreadcrumbItem isCurrentPage={item.isCurrentPage} key={index}>
-                <BreadcrumbLink href={item.url} as={Link}>
-                  <Text
-                    size="textxs"
-                    as="p"
-                    className={twMerge(
-                      "!font-notosans text-[0.88rem] tracking-[0.00rem]",
-                      item.isCurrentPage ? "!text-text-disable font-light sm:line-clamp-1" : "!text-indigo-900 font-medium "
-                    )}
-                  >
-                    {item.text}
-                  </Text>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-            ))}
-          </Breadcrumb>
-          <div className="flex items-center gap-[1.50rem] md:flex-col relative">
-          {props.thumbnail[0].type === 'image' ? 
-            <Img
-              src={props.thumbnail[0]?.url}
-              width={646}
-              height={454}
-              isStatic //hapus nanti setelah dapat API yang asli
-              onClick={()=> handleThumbnailClick(0)}
-              alt={props.thumbnail[0]?.alt}
-              className="rounded-lg object-contain lg:w-[52.5%] hover:cursor-pointer"
-            />
-          :
-            <video
-              controls
-              className="rounded-lg object-contain lg:w-[52.5%] hover:cursor-pointer"
-              src={props.thumbnail[0]?.url}
-              onClick={()=> handleThumbnailClick(0)}
-              poster={props.thumbnail[0]?.thumbnailImage}
-            />
-          }
-            <div className="flex">
+            </div>
+            <div className="flex-1 lg:w-1/2">
               <div className="flex flex-col">
                 <div className="grid grid-cols-2 gap-2 h-full">
                   {props.thumbnail?.map((item, index) => {
@@ -132,10 +104,10 @@ const DetailListingSection = (props: Props) => {
                         <Button
                           key={index}
                           onClick={()=> handleThumbnailClick(index)}
-                          className="w-full rounded-lg bg-[#000000] hidden md:flex relative h-full hover:cursor-pointer"
+                          className="w-full rounded-lg bg-[#000] hidden md:flex relative h-full hover:cursor-pointer"
                         >
                           {/* Background image dengan overlay */}
-                          <div className="absolute inset-0 opacity-40">
+                          <div className="absolute inset-0 opacity-50">
                             <Img
                               src={item.url}
                               width={288}
@@ -184,7 +156,7 @@ const DetailListingSection = (props: Props) => {
                   className=""
                 />
               }
-              className="absolute bottom-4 shadow-md md:top-1/2 right-5 md:self-start md:hidden"
+              className="absolute bottom-4 shadow-md right-4 md:hidden"
             >
               Lihat Semua Foto
             </Button>
@@ -202,7 +174,7 @@ const DetailListingSection = (props: Props) => {
                   className="h-[1.50rem] w-[1.50rem] object-contain"
                 />
               }
-              className="absolute top-4 right-4 bg-white-a700 hidden md:flex min-w-[7.50rem] gap-[0.25rem] rounded sm:max-w-[100px] !border px-[0.56rem] font-notosans font-medium tracking-[0.00rem]"
+              className="absolute top-4 md:right-2 bg-white-a700 hidden md:flex min-w-[7.50rem] gap-[0.25rem] rounded sm:max-w-[100px] !border px-[0.56rem] font-notosans font-medium tracking-[0.00rem]"
             >
               {props.isCopied ? "Tersalin!" : "Salin Link"}
             </Button>

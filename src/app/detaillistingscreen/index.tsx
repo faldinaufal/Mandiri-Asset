@@ -1,6 +1,6 @@
 "use client";
 
-import { Heading, Text, Button, Slider, Img, GoogleMap, Input, SelectBox } from "../../components";
+import { Heading, Text, Button, Img, GoogleMap, Input, SelectBox, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "../../components";
 import DetailListingScreenCardproperty from "../../components/DetailListingScreenCardproperty";
 import DetailListingScreenColumnutaraone from "../../components/DetailListingScreenColumnutaraone";
 import DetailListingScreenDetails from "../../components/DetailListingScreenDetails";
@@ -8,25 +8,26 @@ import Footer1 from "../../components/Footer1";
 import Header from "../../components/Header";
 import DetailListingSection from "./DetailListingSection";
 import React, { Suspense, useEffect } from "react";
-import AliceCarousel, { EventObject } from "react-alice-carousel";
 import DetailPage from "../../constant/detail-page-id.json"
 import PropertySpesification from "../../components/DetailListingScreenColumnkamar";
 import { twMerge } from "tailwind-merge";
 import { MediaPreviewer } from "@/components/MediaPreview/MediaPreview";
+import { SliderV2 } from "@/components/SliderV2";
+import { SwiperRef } from "swiper/react";
+import { Swiper as SwiperType } from 'swiper';
 
 type AccessibilityType = "nearbyLocation" | "accessibility";
 
 export default function DetailListingScreenPage() {
-  const [sliderState, setSliderState] = React.useState(0);
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
   const [sliderStateSlide, setSliderStateSlide] = React.useState(0);
-  const [sliderStatePrev, setSliderStatePrev] = React.useState<boolean>(true);
-  const [sliderStateNext, setSliderStateNext] = React.useState<boolean>(false);
   const [isOpenMedia, setIsOpenMedia] = React.useState<boolean>(false);
   const [accessibility, setAccessibility] = React.useState<AccessibilityType>("nearbyLocation")
-  const sliderRef3 = React.useRef<AliceCarousel>(null);
+  const sliderRef3 = React.useRef<SwiperRef>(null);
   const [isCopied, setIsCopied] = React.useState<boolean>(false);
   const urlToCopy = "https://url-yang-akan-disalin.com";
+  const [isBeginning, setIsBeginning] = React.useState(true);
+  const [isEnd, setIsEnd] = React.useState(false);
 
   function handleCloseMedia () {
     setIsOpenMedia(false);
@@ -46,6 +47,12 @@ export default function DetailListingScreenPage() {
     }
   };
 
+  const handleSlideChange = (swiper: any) => {
+    setSliderStateSlide(swiper.snapIndex + 1);
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
   // Reset status salin setelah 2 detik
   useEffect(() => {
     if (isCopied) {
@@ -58,15 +65,48 @@ export default function DetailListingScreenPage() {
     <div className="w-full bg-white-a700">
       <Header className="border-b border-solid border-black-900_19 bg-white-a700" />
       <div className="mt-[2.38rem] flex flex-col items-center gap-[2.50rem]">
-        {/* detail listing section */}
-        <DetailListingSection 
-          breadcrumbData={DetailPage?.breadcrumb}
-          thumbnail={DetailPage?.thumbnail}
-          isCopied={isCopied}
-          handLeCopy={handleCopy}
-          openMedia={handleOpenMedia}
-        />
-        <div className="container-xs md:px-[1.25rem]">
+        <div className="container md:px-[1.25rem] flex flex-col gap-6">
+          <Breadcrumb
+            separator={
+              <Img
+                src="img_frame_427320547_20x1238.svg"
+                width={16}
+                height={16}
+                alt="Arrow Right"
+                className="h-4 w-4"
+              />
+            }
+            className="flex flex-wrap w-full items-center gap-[0.50rem] md:flex-col"
+          >
+            {DetailPage?.breadcrumb?.map((item, index) => (
+              <BreadcrumbItem isCurrentPage={item.isCurrentPage} key={index}>
+                <BreadcrumbLink>
+                  <Text
+                    size="textxs"
+                    as="p"
+                    className={twMerge(
+                      "!font-notosans text-[0.88rem] tracking-[0.00rem]",
+                      item.isCurrentPage 
+                        ? "!text-text-disable font-light md:line-clamp-1" 
+                        : "!text-indigo-900 font-medium whitespace-nowrap" // <-- tambahkan ini
+                    )}
+                  >
+                    {item.text}
+                  </Text>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            ))}
+          </Breadcrumb>
+          {/* detail listing section */}
+          <DetailListingSection 
+            breadcrumbData={DetailPage?.breadcrumb}
+            thumbnail={DetailPage?.thumbnail}
+            isCopied={isCopied}
+            handLeCopy={handleCopy}
+            openMedia={handleOpenMedia}
+          />
+        </div>
+        <div className="container md:px-[1.25rem]">
           <div className="flex items-start md:flex-col justify-between">
             <div className="flex flex-1 flex-col self-center max-w-[39.25rem]">
               <Heading
@@ -262,7 +302,7 @@ export default function DetailListingScreenPage() {
                 </div>
               </div>
             </div>
-            <div className="flex w-[34%] flex-col items-start gap-[0.88rem] rounded-[16px] bg-gray-100_01 px-[1.38rem] py-[2.00rem] md:w-full sm:p-[1.25rem]">
+            <div className="flex w-[34%] md:hidden flex-col items-start gap-[0.88rem] rounded-[16px] bg-gray-100_01 px-[1.38rem] py-[2.00rem] md:w-full sm:p-[1.25rem]">
               <Heading
                 size="headinglg"
                 as="h6"
@@ -329,8 +369,8 @@ export default function DetailListingScreenPage() {
               </div>
             </div>
           </div>
-          <div className="mt-[5.00rem] flex flex-col gap-[5.00rem] md:gap-[3.75rem] sm:gap-[2.50rem]">
-            <div className="mt-[2.50rem] flex flex-col items-start justify-center gap-[1.50rem]">
+          <div className="w-full flex flex-col gap-[5.00rem] md:gap-[3.75rem] sm:gap-[2.50rem]">
+            <div className="mt-[2.50rem] max-w-[39.25rem] flex flex-col items-start justify-center gap-[1.50rem]">
               <Heading
                 size="textxl"
                 as="h5"
@@ -341,7 +381,7 @@ export default function DetailListingScreenPage() {
               <div className="flex relative items-start justify-between gap-[1.25rem] w-full self-stretch md:flex-col">
                 <GoogleMap
                   showMarker={false}
-                  className="h-[28.38rem] w-full lg:w-[48%] self-center rounded-lg bg-[url(/images/img_frame_427320573.png)] bg-cover bg-no-repeat"
+                  className="h-[28.38rem] w-full self-center rounded-lg bg-[url(/images/img_frame_427320573.png)] bg-cover bg-no-repeat"
                 />
                 <Button
                   color="gray_50_01"
@@ -373,65 +413,74 @@ export default function DetailListingScreenPage() {
                 </Heading>
                 <div className="flex flex-1 items-center justify-end md:self-stretch gap-6">
                   <Text as="p" className="!font-manrope sm:block md:hidden lg:hidden text-[1.00rem] font-normal tracking-[0.00rem] !text-indigo-900">
-                    <span>{sliderStateSlide || "1"}</span>
+                    <span>{sliderStateSlide + 1 || "1"}</span>
                     <span> / </span>
                     <span>{DetailPage?.targetState?.data?.length|| "1"}</span>
                   </Text>
                   <Text as="p" className="!font-manrope sm:hidden md:block lg:hidden text-[1.00rem] font-normal tracking-[0.00rem] !text-indigo-900">
-                    <span>{sliderStateSlide || "1"}</span>
+                    <span>{sliderStateSlide + 1 || "1"}</span>
                     <span> / </span>
                     <span>{Math.ceil((DetailPage?.targetState?.data?.length) / 2) || "1"}</span>
                   </Text>
                   <Text as="p" className="!font-manrope hidden lg:block text-[1.00rem] font-normal tracking-[0.00rem] !text-indigo-900">
-                    <span>{sliderStateSlide || "1"}</span>
+                    <span>{sliderStateSlide + 1 || "1"}</span>
                     <span> / </span>
                     <span>{Math.ceil((DetailPage?.targetState?.data?.length) / 4) || "1"}</span>
                   </Text>
                   <div className="flex gap-[0.50rem]">
                     <Button
-                      onClick={() => {
-                        sliderRef3?.current?.slidePrev();
-                      }}
+                      onClick={() => sliderRef3.current?.swiper.slidePrev()}
+                      disabled={isBeginning}
                       size="xs"
                       variant="outline"
                       shape="circle"
-                      disabled={sliderStatePrev}
                       className={twMerge("w-[2.00rem] rotate-[-180deg] rounded-[16px] border border-solid px-[0.63rem]",
-                        sliderStatePrev ? "border-gray-200" : "border-indigo-900"
+                        isBeginning ? "border-gray-200" : "border-indigo-900"
                       )}
                     >
-                      <Img src={sliderStatePrev ? "img_arrow_right_text_disable.svg" : "img_arrow_right_indigo_900_1.svg"} width={6} height={10} />
+                      <Img src={isBeginning ? "img_arrow_right_text_disable.svg" : "img_arrow_right_indigo_900_1.svg"} width={6} height={10} />
                     </Button>
                     <Button
-                      onClick={() => {
-                        sliderRef3?.current?.slideNext();
-                      }}
+                      onClick={() => sliderRef3.current?.swiper.slideNext()}
+                      disabled={isEnd}
                       size="xs"
                       variant="outline"
                       shape="circle"
-                      disabled={sliderStateNext}
                       className={twMerge("w-[2.00rem] rounded-[16px] border border-solid px-[0.63rem]",
-                        sliderStateNext ? "border-gray-200" : "border-indigo-900" 
+                        isEnd ? "border-gray-200" : "border-indigo-900" 
                       )}
                     >
-                      <Img src={sliderStateNext ? "img_arrow_right_text_disable.svg" : "img_arrow_right_indigo_900_1.svg"} width={6} height={10}/>
+                      <Img src={isEnd ? "img_arrow_right_text_disable.svg" : "img_arrow_right_indigo_900_1.svg"} width={6} height={10}/>
                     </Button>
                   </div>
                 </div>
               </div>
-              <div className="mx-auto flex w-full gap-[0.75rem] md:mx-0 md:flex-col">
-                <Slider
-                  responsive={{ "0": { items: 1 }, "551": { items: 2 }, "1051": { items: 4 } }}
-                  disableDotsControls
-                  activeIndex={sliderState}
-                  onSlideChanged={(e: EventObject) => {
-                    setSliderState(e.item);
-                    setSliderStateSlide(e.slide+1)
-                    setSliderStatePrev(e.isPrevSlideDisabled)
-                    setSliderStateNext(e.isNextSlideDisabled)
-                  }}
-                  infinite={false}
+              <div className="mx-auto flex w-full gap-[0.75rem]">
+                <SliderV2
                   ref={sliderRef3}
+                  onSlideChange={(swiper: SwiperType) => {
+                    setSliderStateSlide(swiper.snapIndex);
+                    setIsBeginning(swiper.isBeginning);
+                    setIsEnd(swiper.isEnd);
+                  }}
+                  disableDotsControls
+                  slidesPerView={1}
+                  slidesPerGroup={1}
+                  loop={true}
+                  swipeable={false}
+                  loopAddBlankSlides={true} // Mengisi sisi kosong saat loop
+                  breakpoints={{
+                    680: {
+                      slidesPerView: 2,
+                      slidesPerGroup: 2, // Geser 2 item untuk tablet
+                      loopAddBlankSlides: true // Bisa dioverride per breakpoint
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                      slidesPerGroup: 4, // Geser 4 item untuk desktop
+                      loopAddBlankSlides: true // Bisa dioverride per breakpoint
+                    }
+                  }}
                   items={DetailPage?.targetState?.data?.map((item, index) => (
                     <React.Fragment key={index}>
                       <div className="px-[0.38rem] h-[160px]">

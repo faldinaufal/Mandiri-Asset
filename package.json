@@ -16,6 +16,7 @@
     "react-alice-carousel": "^2.5.1",
     "react-dom": "^18",
     "react-select": "^5.2.1",
+    "swiper": "^11.2.2",
     "tailwind-merge": "^2.6.0"
   },
   "browserslist": {
